@@ -1,0 +1,2 @@
+import { ResourcePage } from '../../components/ResourcePage';
+export default function BatchesPage() { return <ResourcePage eyebrow="Teaching" title="Batches" description="Keep cohorts, schedules, and progress moving together." endpoint="/api/batches" columns={['name', 'code', 'academicYear', 'status']} detailPrefix="/batches" fields={[{ name: 'name', label: 'Name', required: true }, { name: 'code', label: 'Code', required: true }, { name: 'academicYear', label: 'Academic year', required: true }, { name: 'description', label: 'Description' }]} />; }

@@ -1,0 +1,2 @@
+import { ResourcePage } from '../../components/ResourcePage';
+export default function SubjectsPage() { return <ResourcePage eyebrow="Teaching" title="Subjects" description="Organize the syllabus your batches are working through." endpoint="/api/subjects" columns={['name', 'code', 'description']} detailPrefix="/syllabus" fields={[{ name: 'name', label: 'Name', required: true }, { name: 'code', label: 'Code', required: true }, { name: 'description', label: 'Description' }]} />; }

@@ -1,0 +1,14 @@
+node_modules
+.env
+.env.*
+!.env.example
+.next
+.expo
+.webpack
+coverage
+npm-debug.log*
+.DS_Store
+*.tsbuildinfo
+apps/**/dist
+packages/**/dist
+*.db

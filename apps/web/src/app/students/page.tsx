@@ -1,0 +1,2 @@
+import { ResourcePage } from '../../components/ResourcePage';
+export default function StudentsPage() { return <ResourcePage eyebrow="Teaching" title="Students" description="See who is learning, progressing, and needs support." endpoint="/api/students" columns={['fullName', 'email', 'phone']} detailPrefix="/students" fields={[{ name: 'fullName', label: 'Full name', required: true }, { name: 'email', label: 'Email', type: 'email', required: true }, { name: 'password', label: 'Temporary password', type: 'password', required: true }, { name: 'phone', label: 'Phone' }]} />; }
