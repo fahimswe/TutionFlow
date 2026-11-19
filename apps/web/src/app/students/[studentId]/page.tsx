@@ -1,2 +1,5 @@
 import { StudentDetailView } from '../../../components/StudentDetailView';
-export default function StudentDetails({ params }: { params: { studentId: string } }) { return <StudentDetailView studentId={params.studentId} />; }
+export default async function StudentDetails({ params }: { params: Promise<{ studentId: string }> }) {
+  const { studentId } = await params;
+  return <StudentDetailView studentId={studentId} />;
+}

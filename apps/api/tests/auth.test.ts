@@ -102,7 +102,7 @@ describe('Authentication API', () => {
     expect(response.status).toBe(401);
   });
 
-  it('allows admin-only route for admin user', async () => {
+  it('does not allow public registration to create an admin', async () => {
     const adminResponse = await request(app)
       .post('/api/auth/register')
       .send({
@@ -112,11 +112,13 @@ describe('Authentication API', () => {
         role: 'ADMIN',
       });
 
+    expect(adminResponse.body.user.role).toBe('TUTOR');
+
     const response = await request(app)
       .get('/api/auth/admin-only')
       .set('Authorization', `Bearer ${adminResponse.body.accessToken}`);
 
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(403);
   });
 
   it('denies non-admin access', async () => {

@@ -2,7 +2,7 @@
   "name": "@tutionflow/mobile",
   "version": "0.1.0",
   "private": true,
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "index.js",
   "scripts": {
     "start": "expo start",
     "android": "expo run:android",
@@ -13,17 +13,17 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^2.1.2",
-    "expo": "~52.0.0",
-    "expo-notifications": "~0.29.14",
-    "expo-status-bar": "~2.0.0",
-    "react": "18.3.1",
-    "react-native": "0.76.3",
-    "@tutionflow/shared": "*"
+    "@tutionflow/shared": "*",
+    "expo": "^58.0.26",
+    "expo-notifications": "~58.1.9",
+    "expo-status-bar": "~58.0.5",
+    "react": "19.3.0",
+    "react-native": "0.88.1"
   },
   "devDependencies": {
     "@babel/core": "^7.22.0",
-    "@types/react": "^18.3.12",
-    "typescript": "^5.7.2",
-    "eslint": "^9.16.0"
+    "@types/react": "~19.3.0",
+    "eslint": "^9.16.0",
+    "typescript": "~6.0.3"
   }
 }

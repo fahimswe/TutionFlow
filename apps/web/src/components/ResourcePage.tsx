@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 import { FormEvent, useEffect, useState } from 'react';
 import { apiFetch, toJson } from '../lib/api';
@@ -22,7 +23,7 @@ export function ResourcePage({ title, eyebrow, description, endpoint, fields = [
     {notice && <div className="toast" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Dismiss">x</button></div>}
     <section className="surface"><div className="toolbar"><label className="search-field"><span aria-hidden="true">⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={`Search ${title.toLowerCase()}`} aria-label={`Search ${title}`} /></label><span className="result-count">{items.length} records</span></div>
       <State loading={loading} error={error} empty={!filtered.length && !query ? `No ${title.toLowerCase()} yet.` : undefined}>
-        {filtered.length > 0 && <div className="table-scroll"><table><thead><tr>{columns.map((column) => <th key={column}>{column}</th>)}{detailPrefix && <th>Open</th>}</tr></thead><tbody>{filtered.map((item, index) => <tr key={String(item.id ?? index)}>{columns.map((column) => <td key={column}>{renderValue(item, column)}</td>)}{detailPrefix && <td><a className="table-link" href={`${detailPrefix}/${item.id}`}>View</a></td>}</tr>)}</tbody></table></div>}
+        {filtered.length > 0 && <div className="table-scroll"><table><thead><tr>{columns.map((column) => <th key={column}>{column}</th>)}{detailPrefix && <th>Open</th>}</tr></thead><tbody>{filtered.map((item, index) => <tr key={String(item.id ?? index)}>{columns.map((column) => <td key={column}>{renderValue(item, column)}</td>)}{detailPrefix && <td><Link className="table-link" href={`${detailPrefix}/${item.id}`}>View</Link></td>}</tr>)}</tbody></table></div>}
       </State>
     </section>
     {open && <div className="modal-backdrop"><section className="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div className="section-title"><h2 id="modal-title">{actionLabel}</h2><button className="close-button" onClick={() => setOpen(false)} aria-label="Close">x</button></div><form onSubmit={submit}>{fields.map((field) => <label key={field.name}>{field.label}<input name={field.name} type={field.type ?? 'text'} required={field.required} /></label>)}<button className="button primary wide">Save</button></form></section></div>}

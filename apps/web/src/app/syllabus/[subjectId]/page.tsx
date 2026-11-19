@@ -1,2 +1,5 @@
 import { SyllabusDetailView } from '../../../components/SyllabusDetailView';
-export default function SyllabusDetails({ params }: { params: { subjectId: string } }) { return <SyllabusDetailView subjectId={params.subjectId} />; }
+export default async function SyllabusDetails({ params }: { params: Promise<{ subjectId: string }> }) {
+  const { subjectId } = await params;
+  return <SyllabusDetailView subjectId={subjectId} />;
+}

@@ -23,7 +23,7 @@ export function createAuthRouter() {
       return res.status(400).json({ message: 'Validation failed', errors: parsed.error.flatten() });
     }
 
-    const { email, password, fullName, phone, role } = parsed.data;
+    const { email, password, fullName, phone } = parsed.data;
 
     const existingUser = await prisma.user.findUnique({ where: { email } });
     if (existingUser) {
@@ -38,8 +38,8 @@ export function createAuthRouter() {
         passwordHash,
         fullName,
         phone: phone || null,
-        role,
-        ...(role === 'TUTOR' ? { tutor: { create: {} } } : {}),
+        role: 'TUTOR',
+        tutor: { create: {} },
       },
     });
 

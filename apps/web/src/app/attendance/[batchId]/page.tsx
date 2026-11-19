@@ -1,2 +1,5 @@
 import { AttendanceView } from '../../../components/AttendanceView';
-export default function AttendanceDetails({ params }: { params: { batchId: string } }) { return <AttendanceView batchId={params.batchId} />; }
+export default async function AttendanceDetails({ params }: { params: Promise<{ batchId: string }> }) {
+  const { batchId } = await params;
+  return <AttendanceView batchId={batchId} />;
+}

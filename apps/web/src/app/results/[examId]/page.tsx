@@ -1,1 +1,6 @@
-import { ResultEntryView } from '../../../components/ResultEntryView'; export default function ResultDetails({params}:{params:{examId:string}}){return <ResultEntryView examId={params.examId}/>}
+import { ResultEntryView } from '../../../components/ResultEntryView';
+
+export default async function ResultDetails({ params }: { params: Promise<{ examId: string }> }) {
+  const { examId } = await params;
+  return <ResultEntryView examId={examId} />;
+}

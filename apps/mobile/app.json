@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "TutionFlow",
+    "slug": "tutionflow",
+    "scheme": "tutionflow",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "android": {
+      "package": "com.fahimswe.tutionflow"
+    },
+    "ios": {
+      "bundleIdentifier": "com.fahimswe.tutionflow"
+    },
+    "plugins": [
+      "expo-notifications"
+    ]
+  }
+}
